@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 // Route imports
-app.use('/api/admin', require('./routes/admin'));
+app.use('/api/admin', require('./Routes/admin'));
 // app.use('/api/delivery', require('./routes/delivery'));
 
 app.listen(port, () => {
