@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 # Connect to local MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb+srv://vasujain:vasu%405718@inotebook.ohl0fel.mongodb.net/walmart?retryWrites=true&w=majority&appName=inotebook')
 db = client['walmart']
 products_collection = db['products']
 sales_collection = db['sales']
