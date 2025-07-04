@@ -1,13 +1,22 @@
+from dotenv import load_dotenv
+import os
 import random
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
-# Connect to local MongoDB
-client = MongoClient('mongodb+srv://vasujain:vasu%405718@inotebook.ohl0fel.mongodb.net/walmart?retryWrites=true&w=majority&appName=inotebook')
+# Load environment variables from .env file
+load_dotenv()
+
+# Get MongoDB URI from environment variable
+mongo_uri = os.getenv('MONGO_URI')
+
+# Connect to MongoDB
+client = MongoClient(mongo_uri)
 db = client['walmart']
 products_collection = db['products']
 sales_collection = db['sales']
+
 
 # Fetch existing products
 products = list(products_collection.find())

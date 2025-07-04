@@ -1,9 +1,14 @@
 from pymongo import MongoClient
 from datetime import datetime
 import random
+from dotenv import load_dotenv
+import os
 
-# MongoDB Atlas URI
-uri = "mongodb+srv://vasujain:vasu%405718@inotebook.ohl0fel.mongodb.net/walmart?retryWrites=true&w=majority&appName=inotebook"
+# Load environment variables from .env file
+load_dotenv()
+
+# Get MongoDB URI from environment variable
+uri = os.getenv('MONGO_URI')
 
 # Connect to MongoDB
 client = MongoClient(uri)
