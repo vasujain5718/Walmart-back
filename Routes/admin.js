@@ -12,6 +12,24 @@ router.get('/products', async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
+
+router.post('/restock/:id', async (req, res) => {
+  const { id } = req.params;
+  const { amount } = req.body;
+
+  try {
+    const product = await Product.findById(id);
+    if (!product) return res.status(404).json({ error: 'Product not found' });
+
+    product.stock += amount || 50; // default restock amount = 50
+    await product.save();
+
+    res.json({ message: 'Product restocked', updatedProduct: product });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error', details: err.message });
+  }
+});
+
 router.get('/sales/product-trends', async (req, res) => {
   try {
     const range = parseInt(req.query.range) || 7;
