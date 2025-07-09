@@ -17,6 +17,8 @@ db = client['walmart']
 products_collection = db['products']
 sales_collection = db['sales']
 
+sales_collection.delete_many({})
+
 
 # Fetch existing products
 products = list(products_collection.find())

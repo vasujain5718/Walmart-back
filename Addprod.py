@@ -15,6 +15,8 @@ client = MongoClient(uri)
 db = client['walmart']
 products_collection = db['products']  # Matches your Mongoose model
 
+products_collection.delete_many({})
+
 # Sample product data
 categories = ['Electronics', 'Groceries', 'Clothing', 'Home', 'Toys']
 product_names = ['Widget', 'Gadget', 'T-Shirt', 'Mixer', 'Toy Car', 'Headphones', 'Apple', 'Shirt', 'Vacuum', 'Board Game']
