@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
 
 // Route imports
 app.use('/api/admin', require('./Routes/admin'));
-app.use('/api/predict', require('./Routes/predict'));
+// app.use('/api/predict', require('./Routes/predict'));
+app.use('/api/chat', require('./Routes/chat'));
 // app.use('/api/delivery', require('./routes/delivery'));
-
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
